@@ -113,15 +113,16 @@
             // parametrosToolStripMenuItem
             // 
             this.parametrosToolStripMenuItem.Name = "parametrosToolStripMenuItem";
-            this.parametrosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.parametrosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.parametrosToolStripMenuItem.Text = "Parametros";
             this.parametrosToolStripMenuItem.Click += new System.EventHandler(this.parametrosToolStripMenuItem_Click);
             // 
             // ingresoActivoToolStripMenuItem
             // 
             this.ingresoActivoToolStripMenuItem.Name = "ingresoActivoToolStripMenuItem";
-            this.ingresoActivoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ingresoActivoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ingresoActivoToolStripMenuItem.Text = "Ingreso Activo";
+            this.ingresoActivoToolStripMenuItem.Click += new System.EventHandler(this.ingresoActivoToolStripMenuItem_Click);
             // 
             // depreciacionToolStripMenuItem
             // 

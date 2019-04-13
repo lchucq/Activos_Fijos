@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addAct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addAct.Designer.cs">
+      <DependentUpon>addAct.cs</DependentUpon>
+    </Compile>
     <Compile Include="addOfi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addAct.resx">
+      <DependentUpon>addAct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addOfi.resx">
       <DependentUpon>addOfi.cs</DependentUpon>
     </EmbeddedResource>
