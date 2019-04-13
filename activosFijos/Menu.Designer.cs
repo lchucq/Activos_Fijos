@@ -45,11 +45,13 @@
             this.hora = new MetroFramework.Controls.MetroLabel();
             this.clock = new System.Windows.Forms.Timer(this.components);
             this.pnMenu = new System.Windows.Forms.Panel();
+            this.modificarActivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.activosToolStripMenuItem,
@@ -105,7 +107,8 @@
             // 
             this.activosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.parametrosToolStripMenuItem,
-            this.ingresoActivoToolStripMenuItem});
+            this.ingresoActivoToolStripMenuItem,
+            this.modificarActivoToolStripMenuItem});
             this.activosToolStripMenuItem.Name = "activosToolStripMenuItem";
             this.activosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.activosToolStripMenuItem.Text = "Activos";
@@ -113,14 +116,14 @@
             // parametrosToolStripMenuItem
             // 
             this.parametrosToolStripMenuItem.Name = "parametrosToolStripMenuItem";
-            this.parametrosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.parametrosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.parametrosToolStripMenuItem.Text = "Parametros";
             this.parametrosToolStripMenuItem.Click += new System.EventHandler(this.parametrosToolStripMenuItem_Click);
             // 
             // ingresoActivoToolStripMenuItem
             // 
             this.ingresoActivoToolStripMenuItem.Name = "ingresoActivoToolStripMenuItem";
-            this.ingresoActivoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ingresoActivoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.ingresoActivoToolStripMenuItem.Text = "Ingreso Activo";
             this.ingresoActivoToolStripMenuItem.Click += new System.EventHandler(this.ingresoActivoToolStripMenuItem_Click);
             // 
@@ -166,6 +169,13 @@
             this.pnMenu.Size = new System.Drawing.Size(454, 281);
             this.pnMenu.TabIndex = 5;
             // 
+            // modificarActivoToolStripMenuItem
+            // 
+            this.modificarActivoToolStripMenuItem.Name = "modificarActivoToolStripMenuItem";
+            this.modificarActivoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.modificarActivoToolStripMenuItem.Text = "Modificar Activo";
+            this.modificarActivoToolStripMenuItem.Click += new System.EventHandler(this.modificarActivoToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,5 +213,6 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel pnMenu;
         private System.Windows.Forms.ToolStripMenuItem ingresoOficinasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarActivoToolStripMenuItem;
     }
 }

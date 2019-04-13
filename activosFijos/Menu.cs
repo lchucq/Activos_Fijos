@@ -95,5 +95,10 @@ namespace activosFijos
         {
             addFrmPanel(new addAct());
         }
+
+        private void modificarActivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addFrmPanel(new busEdiAct());
+        }
     }
 }
