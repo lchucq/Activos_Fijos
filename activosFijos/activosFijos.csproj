@@ -70,6 +70,12 @@
     <Compile Include="addOfi.Designer.cs">
       <DependentUpon>addOfi.cs</DependentUpon>
     </Compile>
+    <Compile Include="addPar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addPar.Designer.cs">
+      <DependentUpon>addPar.cs</DependentUpon>
+    </Compile>
     <Compile Include="addRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     <Compile Include="Code\envMail.cs" />
     <Compile Include="Code\genPas.cs" />
     <Compile Include="Code\libGen.cs" />
+    <Compile Include="editPar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editPar.Designer.cs">
+      <DependentUpon>editPar.cs</DependentUpon>
+    </Compile>
     <Compile Include="editUsu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,9 @@
     <EmbeddedResource Include="addOfi.resx">
       <DependentUpon>addOfi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addPar.resx">
+      <DependentUpon>addPar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addRol.resx">
       <DependentUpon>addRol.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="busEditUsu.resx">
       <DependentUpon>busEditUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editPar.resx">
+      <DependentUpon>editPar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editUsu.resx">
       <DependentUpon>editUsu.cs</DependentUpon>

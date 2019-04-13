@@ -62,7 +62,7 @@ namespace activosFijos
 
         private void parametrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            addFrmPanel(new addPar());
         }
 
         private void ingresoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
