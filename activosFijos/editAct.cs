@@ -48,6 +48,7 @@ namespace activosFijos
             {
                 cbDepre.ValueMember = "idPar";
                 cbDepre.DisplayMember = "desPar";
+                
                 cbDepre.DataSource = dtRol;
             }
 
@@ -106,7 +107,6 @@ namespace activosFijos
                     dtpFecCom.Text = Convert.ToDateTime(dtAct.Rows[0]["fecCom"]).ToShortDateString();
                     txtCost.Text = Convert.ToDecimal(dtAct.Rows[0]["valCom"]).ToString("N2");
                     txtValRes.Text = Convert.ToDecimal(dtAct.Rows[0]["valRes"]).ToString("N2");
-                    txtDepMes.Text = Convert.ToDecimal(dtAct.Rows[0]["depMen"]).ToString("N2");
                     cbAdqui.SelectedValue = dtAct.Rows[0]["tipoAquisicion_idAdq"].ToString();
                     cbDepre.SelectedValue = dtAct.Rows[0]["parametroDepreciacion_idPar"].ToString();
                     cbOfi.SelectedValue = dtAct.Rows[0]["oficina_idOfi"].ToString();
@@ -166,6 +166,32 @@ namespace activosFijos
             {
                 MessageBox.Show("Error:" + Environment.NewLine + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cbDepre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Int32 mesVid = Convert.ToInt32((cbDepre.SelectedItem as DataRowView)["mesVid"].ToString());
+            decimal monto = 0;
+            if (decimal.TryParse(txtCost.Text, out monto))
+            {
+                if (monto > 0)
+                {
+                    txtDepMes.Text = Convert.ToDecimal(monto / mesVid).ToString("N2");
+                    return;
+                }
+            }
+            else
+                txtDepMes.Text = Convert.ToDecimal(monto).ToString("N2");
+        }
+
+        private void txtCost_Leave(object sender, EventArgs e)
+        {
+            decimal cost;
+            if (decimal.TryParse(txtCost.Text, out cost))
+                txtCost.Text = cost.ToString("N2");
+            else
+                txtCost.Text = cost.ToString("N2");
+            cbDepre_SelectedIndexChanged(cbDepre, new EventArgs());
         }
     }
 }

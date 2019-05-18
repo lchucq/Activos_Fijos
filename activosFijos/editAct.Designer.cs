@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.txtIdAct = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtValRes = new System.Windows.Forms.TextBox();
             this.txtDepMes = new System.Windows.Forms.TextBox();
             this.txtCost = new System.Windows.Forms.TextBox();
@@ -50,10 +54,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtIdAct = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Activo a Editar";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(218, 179);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 15);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Estado:";
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEstado.DropDownWidth = 150;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(303, 178);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cbEstado.TabIndex = 23;
+            // 
+            // txtIdAct
+            // 
+            this.txtIdAct.Enabled = false;
+            this.txtIdAct.Location = new System.Drawing.Point(106, 16);
+            this.txtIdAct.MaxLength = 250;
+            this.txtIdAct.Name = "txtIdAct";
+            this.txtIdAct.Size = new System.Drawing.Size(75, 20);
+            this.txtIdAct.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 15);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Id Activo:";
+            // 
             // txtValRes
             // 
             this.txtValRes.Location = new System.Drawing.Point(107, 177);
@@ -102,7 +141,8 @@
             // 
             // txtDepMes
             // 
-            this.txtDepMes.Location = new System.Drawing.Point(302, 148);
+            this.txtDepMes.Enabled = false;
+            this.txtDepMes.Location = new System.Drawing.Point(323, 148);
             this.txtDepMes.MaxLength = 45;
             this.txtDepMes.Name = "txtDepMes";
             this.txtDepMes.Size = new System.Drawing.Size(100, 20);
@@ -117,6 +157,7 @@
             this.txtCost.Size = new System.Drawing.Size(100, 20);
             this.txtCost.TabIndex = 8;
             this.txtCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCost.Leave += new System.EventHandler(this.txtCost_Leave);
             // 
             // label10
             // 
@@ -172,9 +213,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 68);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 15);
+            this.label9.Size = new System.Drawing.Size(97, 15);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Num Compro:";
+            this.label9.Text = "Comprobante:";
             // 
             // dtpFecCom
             // 
@@ -191,9 +232,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(218, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 15);
+            this.label8.Size = new System.Drawing.Size(101, 15);
             this.label8.TabIndex = 13;
-            this.label8.Text = "Depre Mes:";
+            this.label8.Text = "Depr Mensual:";
             // 
             // label7
             // 
@@ -224,6 +265,7 @@
             this.cbDepre.Name = "cbDepre";
             this.cbDepre.Size = new System.Drawing.Size(100, 21);
             this.cbDepre.TabIndex = 4;
+            this.cbDepre.SelectedIndexChanged += new System.EventHandler(this.cbDepre_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -295,45 +337,6 @@
             this.label2.Size = new System.Drawing.Size(87, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Descripción:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 15);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Id Activo:";
-            // 
-            // txtIdAct
-            // 
-            this.txtIdAct.Enabled = false;
-            this.txtIdAct.Location = new System.Drawing.Point(106, 16);
-            this.txtIdAct.MaxLength = 250;
-            this.txtIdAct.Name = "txtIdAct";
-            this.txtIdAct.Size = new System.Drawing.Size(75, 20);
-            this.txtIdAct.TabIndex = 22;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(218, 179);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 15);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Estado:";
-            // 
-            // cbEstado
-            // 
-            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEstado.DropDownWidth = 150;
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(303, 178);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(121, 21);
-            this.cbEstado.TabIndex = 23;
             // 
             // editAct
             // 

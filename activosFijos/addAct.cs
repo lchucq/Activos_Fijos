@@ -137,6 +137,7 @@ namespace activosFijos
                 txtCost.Text = cost.ToString("N2");
             else
                 txtCost.Text = cost.ToString("N2");
+            cbDepre_SelectedIndexChanged(cbDepre, new EventArgs());
         }
 
         private void txtDepMes_Leave(object sender, EventArgs e)
@@ -155,6 +156,22 @@ namespace activosFijos
                 txtValRes.Text = cost.ToString("N2");
             else
                 txtValRes.Text = cost.ToString("N2");
+        }
+
+        private void cbDepre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Int32 mesVid = Convert.ToInt32((cbDepre.SelectedItem as DataRowView)["mesVid"].ToString());
+            decimal monto = 0;
+            if (decimal.TryParse(txtCost.Text, out monto))
+            {
+                if (monto > 0)
+                {
+                    txtDepMes.Text = Convert.ToDecimal(monto / mesVid).ToString("N2");
+                    return;
+                }
+            }
+            else
+                txtDepMes.Text = Convert.ToDecimal(monto).ToString("N2");
         }
     }
 }

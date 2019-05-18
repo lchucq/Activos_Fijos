@@ -106,7 +106,8 @@
             // 
             // txtDepMes
             // 
-            this.txtDepMes.Location = new System.Drawing.Point(302, 125);
+            this.txtDepMes.Enabled = false;
+            this.txtDepMes.Location = new System.Drawing.Point(321, 125);
             this.txtDepMes.MaxLength = 45;
             this.txtDepMes.Name = "txtDepMes";
             this.txtDepMes.Size = new System.Drawing.Size(100, 20);
@@ -178,9 +179,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 45);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 15);
+            this.label9.Size = new System.Drawing.Size(97, 15);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Num Compro:";
+            this.label9.Text = "Comprobante:";
             // 
             // dtpFecCom
             // 
@@ -197,9 +198,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(218, 127);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 15);
+            this.label8.Size = new System.Drawing.Size(93, 15);
             this.label8.TabIndex = 13;
-            this.label8.Text = "Depre Mes:";
+            this.label8.Text = "Depr Mesual:";
             // 
             // label7
             // 
@@ -230,6 +231,7 @@
             this.cbDepre.Name = "cbDepre";
             this.cbDepre.Size = new System.Drawing.Size(100, 21);
             this.cbDepre.TabIndex = 4;
+            this.cbDepre.SelectedIndexChanged += new System.EventHandler(this.cbDepre_SelectedIndexChanged);
             // 
             // label5
             // 
