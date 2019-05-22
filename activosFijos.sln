@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "activosFijos", "activosFijos\activosFijos.csproj", "{831DC5C5-9525-4FD7-B79A-CB1D9B1C006A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivosFijos.Tests", "ActivosFijos.Tests\ActivosFijos.Tests.csproj", "{2BE30E36-5145-41B6-A16B-434E8CDBCF78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{831DC5C5-9525-4FD7-B79A-CB1D9B1C006A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831DC5C5-9525-4FD7-B79A-CB1D9B1C006A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831DC5C5-9525-4FD7-B79A-CB1D9B1C006A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE30E36-5145-41B6-A16B-434E8CDBCF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE30E36-5145-41B6-A16B-434E8CDBCF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE30E36-5145-41B6-A16B-434E8CDBCF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE30E36-5145-41B6-A16B-434E8CDBCF78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

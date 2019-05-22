@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace activosFijos.Code
 {
-    class libGen
+    public class libGen
     {
         public bool IsValidEmail(string email)
         {

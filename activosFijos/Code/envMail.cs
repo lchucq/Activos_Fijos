@@ -38,7 +38,7 @@ namespace activosFijos.Code
             mail = new MailMessage();
             try
             {
-                mail.From = new MailAddress(mailout, asunto, Encoding.UTF8);
+                mail.From = new MailAddress(mailout, "Activos Fijos", Encoding.UTF8);
                 mail.To.Add(email);
                 mail.Subject = asunto;
                 mail.Body = Msj.ToString();
