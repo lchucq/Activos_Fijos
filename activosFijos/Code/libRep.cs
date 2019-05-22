@@ -31,4 +31,24 @@ namespace activosFijos.Code
         public int idUsu { get; set; }
         public string nomUsu { get; set; }
     }
+    class rptAjuste
+    {
+        public int idAct { get; set; }
+        public DateTime fecCom { get; set; }
+        public string numCom { get; set; }
+        public string desAct { get; set; }
+        public decimal valCom { get; set; }
+        public decimal depAcu { get; set; }
+        public decimal valAct { get; set; }
+        public decimal valRes { get; set; }
+        public string desCat { get; set; }
+        public string nomOfi { get; set; }
+        public string nomEst { get; set; }
+        public string nomPar { get; set; }
+        public DateTime fecDep { get; set; }
+        public decimal monDep { get; set; }
+        public int mesDep { get; set; }
+        public string desDep { get; set; }
+        public string nomUsu { get; set; }
+    }
 }

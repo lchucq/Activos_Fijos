@@ -118,7 +118,13 @@ namespace activosFijos
 
                     command = conn.CreateCommand();
                     command.CommandText = "UPDATE activo AS act, (SELECT SUM(monDep)tdep, activo_idAct idAc FROM historialdepreciacion " +
-                        "GROUP BY activo_idAct) AS td SET act.depAcu = td.tdep, act.valAct = act.valCom - td.tdep WHERE act.idAct = td.idAc";
+                        "GROUP BY activo_idAct) AS td SET act.depAcu = td.tdep, act.valAct = act.valCom - td.tdep, act.ultDep=NOW() WHERE act.idAct = td.idAc";
+                    command.ExecuteNonQuery();
+
+                    command = conn.CreateCommand();
+                    command.CommandText = "UPDATE activo AS act, parametrodepreciacion par, (SELECT SUM(mesDep)tdep, activo_idAct idAc FROM historialdepreciacion " +
+                        "GROUP BY activo_idAct) AS td SET act.estadoActivo_idEst = 3 WHERE act.idAct = td.idAc AND act.parametroDepreciacion_idPar=par.idPar "
+                        + "AND td.tDep >= par.mesVid";
                     command.ExecuteNonQuery();
 
                     command = conn.CreateCommand();

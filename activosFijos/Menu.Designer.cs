@@ -41,19 +41,19 @@
             this.ingresoActivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarActivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depreciacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cálculoYDepreciacionActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajusteDeActivosPorSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hora = new MetroFramework.Controls.MetroLabel();
             this.clock = new System.Windows.Forms.Timer(this.components);
             this.pnMenu = new System.Windows.Forms.Panel();
-            this.cálculoYDepreciacionActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajusteDeActivosPorSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.activosToolStripMenuItem,
@@ -145,6 +145,20 @@
             this.depreciacionToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.depreciacionToolStripMenuItem.Text = "Depreciacion";
             // 
+            // cálculoYDepreciacionActivosToolStripMenuItem
+            // 
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Name = "cálculoYDepreciacionActivosToolStripMenuItem";
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Text = "Cálculo y Depreciacion Activos";
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Click += new System.EventHandler(this.cálculoYDepreciacionActivosToolStripMenuItem_Click);
+            // 
+            // ajusteDeActivosPorSalidaToolStripMenuItem
+            // 
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Name = "ajusteDeActivosPorSalidaToolStripMenuItem";
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Text = "Ajuste de Activos por Salida";
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Click += new System.EventHandler(this.ajusteDeActivosPorSalidaToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
@@ -181,19 +195,6 @@
             this.pnMenu.Size = new System.Drawing.Size(454, 281);
             this.pnMenu.TabIndex = 5;
             // 
-            // cálculoYDepreciacionActivosToolStripMenuItem
-            // 
-            this.cálculoYDepreciacionActivosToolStripMenuItem.Name = "cálculoYDepreciacionActivosToolStripMenuItem";
-            this.cálculoYDepreciacionActivosToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.cálculoYDepreciacionActivosToolStripMenuItem.Text = "Cálculo y Depreciacion Activos";
-            this.cálculoYDepreciacionActivosToolStripMenuItem.Click += new System.EventHandler(this.cálculoYDepreciacionActivosToolStripMenuItem_Click);
-            // 
-            // ajusteDeActivosPorSalidaToolStripMenuItem
-            // 
-            this.ajusteDeActivosPorSalidaToolStripMenuItem.Name = "ajusteDeActivosPorSalidaToolStripMenuItem";
-            this.ajusteDeActivosPorSalidaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.ajusteDeActivosPorSalidaToolStripMenuItem.Text = "Ajuste de Activos por Salida";
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +203,7 @@
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.hora);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";

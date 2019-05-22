@@ -105,5 +105,10 @@ namespace activosFijos
         {
             addFrmPanel(new clcDepPrev());
         }
+
+        private void ajusteDeActivosPorSalidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addFrmPanel(new busOutAct());
+        }
     }
 }

@@ -124,6 +124,12 @@
     <Compile Include="busEditUsu.Designer.cs">
       <DependentUpon>busEditUsu.cs</DependentUpon>
     </Compile>
+    <Compile Include="busOutAct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="busOutAct.Designer.cs">
+      <DependentUpon>busOutAct.cs</DependentUpon>
+    </Compile>
     <Compile Include="clcDepPrev.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="outAct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="outAct.Designer.cs">
+      <DependentUpon>outAct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rpt\rptFrm.cs">
@@ -200,6 +212,9 @@
     <EmbeddedResource Include="busEditUsu.resx">
       <DependentUpon>busEditUsu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="busOutAct.resx">
+      <DependentUpon>busOutAct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="clcDepPrev.resx">
       <DependentUpon>clcDepPrev.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +236,9 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="outAct.resx">
+      <DependentUpon>outAct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -234,7 +252,9 @@
     <EmbeddedResource Include="Rpt\rptFrm.resx">
       <DependentUpon>rptFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rpt\rptSalida.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\activosFijos.Code.rptAjuste.datasource" />
     <None Include="Properties\DataSources\activosFijos.Code.rptDep.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
