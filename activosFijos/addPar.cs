@@ -35,9 +35,10 @@ namespace activosFijos
                     conn.Open();
 
                     MySqlCommand command = conn.CreateCommand();
-                    command.CommandText = "INSERT INTO parametrodepreciacion (desPar, mesVid, usuario_idUsu, created) VALUES (@nom, @mes, @usu, now())";
+                    command.CommandText = "INSERT INTO parametrodepreciacion (desPar, mesVid, iniMesCom, usuario_idUsu, created) VALUES (@nom, @mes, @ini, @usu, now())";
                     command.Parameters.Add("@nom", MySqlDbType.String).Value = txtNom.Text.Trim();
                     command.Parameters.Add("@mes", MySqlDbType.Int24).Value = nudMeses.Value;
+                    command.Parameters.Add("@ini", MySqlDbType.Bit).Value = cbIniMesCom.Checked ? true : false;
                     command.Parameters.Add("@usu", MySqlDbType.String).Value = Globals.codUsu;
                     command.ExecuteNonQuery();
                     MessageBox.Show("Registro Ingresado Exitosamente", "Registro Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

@@ -176,7 +176,24 @@ namespace activosFijos
             {
                 if (monto > 0)
                 {
-                    txtDepMes.Text = Convert.ToDecimal(monto / mesVid).ToString("N2");
+                    decimal depreciado=0;
+                    Int16 meses=0;
+                    MySqlConnection conn = new MySqlConnection(connString);
+                    conn.Open();
+                    MySqlCommand command = conn.CreateCommand();
+                    MySqlDataAdapter datos;
+                    command.CommandText = "SELECT sum(monDep)monDep, sum(mesDep)meses FROM historialdepreciacion where activo_idAct="
+                        + txtIdAct.Text+" group by activo_idAct";
+                    datos = new MySqlDataAdapter(command);
+                    DataTable dtDepre = new DataTable();
+                    datos.Fill(dtDepre);
+                    if (dtDepre.Rows.Count > 0)
+                    {
+                        depreciado = Convert.ToDecimal(dtDepre.Rows[0]["monDep"]);
+                        meses = Convert.ToInt16(dtDepre.Rows[0]["meses"]);
+                    }
+                    conn.Close();
+                    txtDepMes.Text = Convert.ToDecimal((monto - depreciado) / (mesVid - meses)).ToString("N2");
                     return;
                 }
             }

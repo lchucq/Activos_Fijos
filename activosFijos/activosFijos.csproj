@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,11 +63,14 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data">
       <HintPath>..\..\IngresoEmpleados\IngresoEmpleados\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -106,9 +124,16 @@
     <Compile Include="busEditUsu.Designer.cs">
       <DependentUpon>busEditUsu.cs</DependentUpon>
     </Compile>
+    <Compile Include="clcDepPrev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clcDepPrev.Designer.cs">
+      <DependentUpon>clcDepPrev.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\envMail.cs" />
     <Compile Include="Code\genPas.cs" />
     <Compile Include="Code\libGen.cs" />
+    <Compile Include="Code\libRep.cs" />
     <Compile Include="editAct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +164,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListItem.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +173,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rpt\rptFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt\rptFrm.Designer.cs">
+      <DependentUpon>rptFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addAct.resx">
       <DependentUpon>addAct.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="busEditUsu.resx">
       <DependentUpon>busEditUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clcDepPrev.resx">
+      <DependentUpon>clcDepPrev.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editAct.resx">
       <DependentUpon>editAct.cs</DependentUpon>
@@ -195,7 +230,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rpt\prtDepre.rdlc" />
+    <EmbeddedResource Include="Rpt\rptFrm.resx">
+      <DependentUpon>rptFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\activosFijos.Code.rptDep.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -211,6 +251,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono.ico" />
+    <Content Include="img\reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

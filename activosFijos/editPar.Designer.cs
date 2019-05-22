@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudMeses = new System.Windows.Forms.NumericUpDown();
             this.txtCodUsu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.nudMeses = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cbIniMesCom = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMeses)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbIniMesCom);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.nudMeses);
             this.groupBox1.Controls.Add(this.txtCodUsu);
@@ -51,10 +53,34 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(10, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(400, 158);
+            this.groupBox1.Size = new System.Drawing.Size(400, 165);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edición de Parámetro";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(213, 15);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Meses Totales de Depreciación:";
+            // 
+            // nudMeses
+            // 
+            this.nudMeses.Location = new System.Drawing.Point(253, 79);
+            this.nudMeses.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudMeses.Name = "nudMeses";
+            this.nudMeses.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nudMeses.Size = new System.Drawing.Size(70, 20);
+            this.nudMeses.TabIndex = 16;
+            this.nudMeses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtCodUsu
             // 
@@ -79,7 +105,7 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(2)))), ((int)(((byte)(67)))));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(155, 119);
+            this.btnSave.Location = new System.Drawing.Point(155, 133);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -104,29 +130,18 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nombre:";
             // 
-            // nudMeses
+            // cbIniMesCom
             // 
-            this.nudMeses.Location = new System.Drawing.Point(253, 79);
-            this.nudMeses.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudMeses.Name = "nudMeses";
-            this.nudMeses.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nudMeses.Size = new System.Drawing.Size(70, 20);
-            this.nudMeses.TabIndex = 16;
-            this.nudMeses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 84);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 15);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Meses Totales de Depreciación:";
+            this.cbIniMesCom.AutoSize = true;
+            this.cbIniMesCom.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbIniMesCom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIniMesCom.Location = new System.Drawing.Point(93, 105);
+            this.cbIniMesCom.Name = "cbIniMesCom";
+            this.cbIniMesCom.Size = new System.Drawing.Size(169, 17);
+            this.cbIniMesCom.TabIndex = 18;
+            this.cbIniMesCom.Text = "Iniciar en mes de Compra";
+            this.cbIniMesCom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbIniMesCom.UseVisualStyleBackColor = true;
             // 
             // editPar
             // 
@@ -155,5 +170,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nudMeses;
+        private System.Windows.Forms.CheckBox cbIniMesCom;
     }
 }

@@ -29,5 +29,27 @@ namespace activosFijos.Code
             // Return true if strIn is in valid e-mail format.
             return codUsu;
         }
+        public string annMes(string annMes)
+        {
+            string mes = "";
+            string[] AN = annMes.Split('-');
+            switch (AN[1])
+            {
+                case "01": mes = "Enero";break;
+                case "02": mes = "Febrero"; break;
+                case "03": mes = "Marzo"; break;
+                case "04": mes = "Abril"; break;
+                case "05": mes = "Mayo"; break;
+                case "06": mes = "Junio"; break;
+                case "07": mes = "Julio"; break;
+                case "08": mes = "Agosto"; break;
+                case "09": mes = "Septiembre"; break;
+                case "10": mes = "Octubre"; break;
+                case "11": mes = "Noviembre"; break;
+                case "12": mes = "Diciembre"; break;
+                default: mes = "";break;
+            }
+            return mes + " del " + AN[0];
+        }
     }
 }

@@ -39,13 +39,15 @@
             this.activosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoActivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarActivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depreciacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hora = new MetroFramework.Controls.MetroLabel();
             this.clock = new System.Windows.Forms.Timer(this.components);
             this.pnMenu = new System.Windows.Forms.Panel();
-            this.modificarActivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cálculoYDepreciacionActivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajusteDeActivosPorSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,8 +129,18 @@
             this.ingresoActivoToolStripMenuItem.Text = "Ingreso Activo";
             this.ingresoActivoToolStripMenuItem.Click += new System.EventHandler(this.ingresoActivoToolStripMenuItem_Click);
             // 
+            // modificarActivoToolStripMenuItem
+            // 
+            this.modificarActivoToolStripMenuItem.Name = "modificarActivoToolStripMenuItem";
+            this.modificarActivoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.modificarActivoToolStripMenuItem.Text = "Modificar Activo";
+            this.modificarActivoToolStripMenuItem.Click += new System.EventHandler(this.modificarActivoToolStripMenuItem_Click);
+            // 
             // depreciacionToolStripMenuItem
             // 
+            this.depreciacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cálculoYDepreciacionActivosToolStripMenuItem,
+            this.ajusteDeActivosPorSalidaToolStripMenuItem});
             this.depreciacionToolStripMenuItem.Name = "depreciacionToolStripMenuItem";
             this.depreciacionToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.depreciacionToolStripMenuItem.Text = "Depreciacion";
@@ -169,12 +181,18 @@
             this.pnMenu.Size = new System.Drawing.Size(454, 281);
             this.pnMenu.TabIndex = 5;
             // 
-            // modificarActivoToolStripMenuItem
+            // cálculoYDepreciacionActivosToolStripMenuItem
             // 
-            this.modificarActivoToolStripMenuItem.Name = "modificarActivoToolStripMenuItem";
-            this.modificarActivoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.modificarActivoToolStripMenuItem.Text = "Modificar Activo";
-            this.modificarActivoToolStripMenuItem.Click += new System.EventHandler(this.modificarActivoToolStripMenuItem_Click);
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Name = "cálculoYDepreciacionActivosToolStripMenuItem";
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Text = "Cálculo y Depreciacion Activos";
+            this.cálculoYDepreciacionActivosToolStripMenuItem.Click += new System.EventHandler(this.cálculoYDepreciacionActivosToolStripMenuItem_Click);
+            // 
+            // ajusteDeActivosPorSalidaToolStripMenuItem
+            // 
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Name = "ajusteDeActivosPorSalidaToolStripMenuItem";
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.ajusteDeActivosPorSalidaToolStripMenuItem.Text = "Ajuste de Activos por Salida";
             // 
             // Menu
             // 
@@ -214,5 +232,7 @@
         private System.Windows.Forms.Panel pnMenu;
         private System.Windows.Forms.ToolStripMenuItem ingresoOficinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarActivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cálculoYDepreciacionActivosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajusteDeActivosPorSalidaToolStripMenuItem;
     }
 }

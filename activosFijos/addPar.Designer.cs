@@ -30,19 +30,20 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtNom = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.nudMeses = new System.Windows.Forms.NumericUpDown();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.grdView = new System.Windows.Forms.DataGridView();
             this.idUsu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomUsu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.nudMeses = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbIniMesCom = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMeses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMeses)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbIniMesCom);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.grdView);
             this.groupBox1.Controls.Add(this.nudMeses);
@@ -71,59 +73,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Parámetro";
             // 
-            // label3
+            // btnRefresh
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Meses Totales de Depreciación:";
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(2)))), ((int)(((byte)(67)))));
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(348, 20);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Añadir";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtNom
-            // 
-            this.txtNom.Location = new System.Drawing.Point(74, 19);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(250, 20);
-            this.txtNom.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre:";
-            // 
-            // nudMeses
-            // 
-            this.nudMeses.Location = new System.Drawing.Point(254, 46);
-            this.nudMeses.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudMeses.Name = "nudMeses";
-            this.nudMeses.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nudMeses.Size = new System.Drawing.Size(70, 20);
-            this.nudMeses.TabIndex = 2;
-            this.nudMeses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(2)))), ((int)(((byte)(67)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(350, 45);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.Text = "Actualiz";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // grdView
             // 
@@ -166,18 +127,69 @@
             this.email.Name = "email";
             this.email.ReadOnly = true;
             // 
-            // btnRefresh
+            // nudMeses
             // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(2)))), ((int)(((byte)(67)))));
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(348, 45);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 11;
-            this.btnRefresh.Text = "Actualiz";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.nudMeses.Location = new System.Drawing.Point(155, 46);
+            this.nudMeses.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudMeses.Name = "nudMeses";
+            this.nudMeses.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nudMeses.Size = new System.Drawing.Size(50, 20);
+            this.nudMeses.TabIndex = 2;
+            this.nudMeses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "# Meses de Depreciación:";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(2)))), ((int)(((byte)(67)))));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(350, 20);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Añadir";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtNom
+            // 
+            this.txtNom.Location = new System.Drawing.Point(74, 19);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(250, 20);
+            this.txtNom.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre:";
+            // 
+            // cbIniMesCom
+            // 
+            this.cbIniMesCom.AutoSize = true;
+            this.cbIniMesCom.Location = new System.Drawing.Point(206, 48);
+            this.cbIniMesCom.Name = "cbIniMesCom";
+            this.cbIniMesCom.Size = new System.Drawing.Size(145, 17);
+            this.cbIniMesCom.TabIndex = 12;
+            this.cbIniMesCom.Text = "Iniciar en mes de Compra";
+            this.cbIniMesCom.UseVisualStyleBackColor = true;
             // 
             // addPar
             // 
@@ -192,8 +204,8 @@
             this.Load += new System.EventHandler(this.addPar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMeses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMeses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +225,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomUsu;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.CheckBox cbIniMesCom;
     }
 }

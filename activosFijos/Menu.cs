@@ -100,5 +100,10 @@ namespace activosFijos
         {
             addFrmPanel(new busEdiAct());
         }
+
+        private void cálculoYDepreciacionActivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addFrmPanel(new clcDepPrev());
+        }
     }
 }

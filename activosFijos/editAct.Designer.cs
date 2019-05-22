@@ -151,6 +151,7 @@
             // 
             // txtCost
             // 
+            this.txtCost.Enabled = false;
             this.txtCost.Location = new System.Drawing.Point(107, 149);
             this.txtCost.MaxLength = 45;
             this.txtCost.Name = "txtCost";

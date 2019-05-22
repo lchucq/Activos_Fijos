@@ -41,6 +41,7 @@ namespace activosFijos
                     txtCodUsu.Text = dtUsu.Rows[0]["idPar"].ToString();
                     txtNom.Text = dtUsu.Rows[0]["desPar"].ToString();
                     nudMeses.Text = dtUsu.Rows[0]["mesVid"].ToString();
+                    cbIniMesCom.Checked = Convert.ToBoolean(dtUsu.Rows[0]["iniMesCom"]);
                 }
                 else
                 {
@@ -64,9 +65,10 @@ namespace activosFijos
                     conn.Open();
                     MySqlCommand command = conn.CreateCommand();
                     command = conn.CreateCommand();
-                    command.CommandText = "UPDATE parametrodepreciacion SET desPar=@nom, mesVid=@mes where idPar=@idPar";
+                    command.CommandText = "UPDATE parametrodepreciacion SET desPar=@nom, mesVid=@mes, iniMesCom=@ini where idPar=@idPar";
                     command.Parameters.Add("@nom", MySqlDbType.String).Value = txtNom.Text.Trim();
                     command.Parameters.Add("@mes", MySqlDbType.Int32).Value = nudMeses.Value;
+                    command.Parameters.Add("@ini", MySqlDbType.Bit).Value = cbIniMesCom.Checked ? true : false;
                     command.Parameters.Add("@idPar", MySqlDbType.Int32).Value = Convert.ToInt32(txtCodUsu.Text);
                     command.ExecuteNonQuery();
                     MessageBox.Show("Registro Modificado Exitosamente", "Registro Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
