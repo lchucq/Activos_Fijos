@@ -45,7 +45,7 @@ namespace activosFijos.Code
                 case "10": mes = "Octubre"; break;
                 case "11": mes = "Noviembre"; break;
                 case "12": mes = "Diciembre"; break;
-                default: mes = "";break;
+                default: mes = "Todos los meses";break;
             }
             return mes + " del " + AN[0];
         }

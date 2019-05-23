@@ -260,6 +260,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rpt\rptDepreciaciones.rdlc" />
     <EmbeddedResource Include="Rpt\rptActivos.rdlc" />
     <EmbeddedResource Include="Rpt\prtDepre.rdlc" />
     <EmbeddedResource Include="Rpt\rptAct.resx">
@@ -276,6 +277,7 @@
     <None Include="Properties\DataSources\activosFijos.Code.rptAct.datasource" />
     <None Include="Properties\DataSources\activosFijos.Code.rptAjuste.datasource" />
     <None Include="Properties\DataSources\activosFijos.Code.rptDep.datasource" />
+    <None Include="Properties\DataSources\activosFijos.Code.rptDepress.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

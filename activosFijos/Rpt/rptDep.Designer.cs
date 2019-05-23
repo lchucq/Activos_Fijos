@@ -120,10 +120,25 @@
             // nudAnn
             // 
             this.nudAnn.Location = new System.Drawing.Point(76, 104);
+            this.nudAnn.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudAnn.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.nudAnn.Name = "nudAnn";
             this.nudAnn.Size = new System.Drawing.Size(60, 20);
             this.nudAnn.TabIndex = 13;
             this.nudAnn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudAnn.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             // 
             // rb1
             // 

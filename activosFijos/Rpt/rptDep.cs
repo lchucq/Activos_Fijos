@@ -40,7 +40,7 @@ namespace activosFijos.Rpt
                 string commSql = "SELECT act.idAct, act.desAct, ofi.nomOfi, cat.desCat, his.fecDep, his.monDep, his.mesDep, his.desDep, "
                     + "par.desPar FROM historialdepreciacion his, activo act, parametrodepreciacion par, oficina ofi, categoria cat "
                     + "WHERE his.activo_idAct=act.idAct AND his.numCom=par.idPar AND act.oficina_idOfi=ofi.idOfi AND act.categoria_idCat=cat.idCat "
-                    +"AND his.desDep LIKE @desDep";
+                    +"AND his.desDep LIKE @desDep ";
                 if (rb2.Checked)
                 {
                     command.Parameters.Add("@desDep", MySqlDbType.String).Value = "1-%";
@@ -60,22 +60,24 @@ namespace activosFijos.Rpt
                 {
                     libGen lgen = new libGen();
                     rptFrm rp = new rptFrm();
-                    rp.nomRep = "rptActivos.rdlc"; //nombre del reporte a utilizar
+                    rp.nomRep = "rptDepreciaciones.rdlc"; //nombre del reporte a utilizar
                     rp.dtParam = new DataTable(); // coleccion de parametros que tiene el reporte
                     rp.dtParam.Columns.Add("nom");
                     rp.dtParam.Columns.Add("val");
-                    rp.dtParam.Rows.Add("nomRep", "REPORTE DE ACTIVOS");
-                    rp.dtParam.Rows.Add("tipMes", (cbMes.SelectedItem as DataRowView)["desPar"].ToString());
-                    rp.dtParam.Rows.Add("tipAnn", tipAnn);
                     if (rb2.Checked)
                     {
+                        rp.dtParam.Rows.Add("nomRep", "REPORTE DE SALIDAS DE ACTIVOS");
                         rp.dtParam.Rows.Add("fecIni", dtIni.ToShortDateString());
                         rp.dtParam.Rows.Add("fecFin", dtFin.ToShortDateString());
+                        rp.dtParam.Rows.Add("tipMes", "");
                     }
                     else
                     {
+                        rp.dtParam.Rows.Add("nomRep", "REPORTE DE DEPRECIACIONES POR MES");
+                        libGen _libGen = new libGen();
                         rp.dtParam.Rows.Add("fecIni", "");
                         rp.dtParam.Rows.Add("fecFin", "");
+                        rp.dtParam.Rows.Add("tipMes", _libGen.annMes(tipAnn + "-" + tipMes));
                     }
                     rp.ds = "dsRep"; //nombre del dataset
                     rp.dtSet = dtAct; //contenido del dataset
@@ -115,6 +117,7 @@ namespace activosFijos.Rpt
             cbMes.DisplayMember = "desPar";
             dpFin.Value = DateTime.Now;
             dpIni.Value = DateTime.Now;
+            nudAnn.Value = DateTime.Now.Year;
         }
 
         private void rb1_CheckedChanged(object sender, EventArgs e)
