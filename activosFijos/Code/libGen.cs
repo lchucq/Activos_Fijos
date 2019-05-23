@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using MySql.Data.MySqlClient;
+using System.Data;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace activosFijos.Code
 {
     public class libGen
     {
+        
         public bool IsValidEmail(string email)
         {
             // Return true if strIn is in valid e-mail format.
@@ -50,6 +48,27 @@ namespace activosFijos.Code
                 default: mes = "";break;
             }
             return mes + " del " + AN[0];
+        }
+        public static void priLin(DataTable dto)
+        {
+            DataRow dr = dto.NewRow();
+            dr["desPar"] = "Todas las Opciones";
+            dr["valPar"] = 0;
+            dto.Rows.InsertAt(dr, 0);
+        }
+
+        public static DataTable consSql(string Sql, string connString)
+        {
+            MySqlConnection conn = new MySqlConnection(connString);
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            MySqlDataAdapter datos;
+            command.CommandText = Sql;
+            datos = new MySqlDataAdapter(command);
+            DataTable dtDatos = new DataTable();
+            datos.Fill(dtDatos);
+            conn.Close();
+            return dtDatos;
         }
     }
 }

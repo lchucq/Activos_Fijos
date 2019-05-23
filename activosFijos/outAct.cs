@@ -26,74 +26,47 @@ namespace activosFijos
 
         private void outAct_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(connString);
-            conn.Open();
-            MySqlCommand command = conn.CreateCommand();
-            MySqlDataAdapter datos;
-            command.CommandText = "SELECT * FROM oficina order by idOfi";
-            datos = new MySqlDataAdapter(command);
-            DataTable dtOfi = new DataTable();
-            datos.Fill(dtOfi);
-            if (dtOfi.Rows.Count > 0)
+            DataTable dtDatos = libGen.consSql("SELECT idOfi valPar, nomOfi desPar FROM oficina order by idOfi", connString);
+            if (dtDatos.Rows.Count > 0)
             {
-                cbOfi.ValueMember = "idOfi";
-                cbOfi.DisplayMember = "nomOfi";
-                cbOfi.DataSource = dtOfi;
+                cbOfi.ValueMember = "valPar";
+                cbOfi.DisplayMember = "desPar";
+                cbOfi.DataSource = dtDatos;
             }
-
-            command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM parametrodepreciacion order by idPar";
-            datos = new MySqlDataAdapter(command);
-            DataTable dtRol = new DataTable();
-            datos.Fill(dtRol);
-            if (dtRol.Rows.Count > 0)
+            dtDatos = libGen.consSql("SELECT idPar valPar, desPar FROM parametrodepreciacion order by idPar", connString);
+            if (dtDatos.Rows.Count > 0)
             {
-                cbDepre.ValueMember = "idPar";
+                cbDepre.ValueMember = "valPar";
                 cbDepre.DisplayMember = "desPar";
-
-                cbDepre.DataSource = dtRol;
+                cbDepre.DataSource = dtDatos;
             }
-
-            command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM tipoaquisicion order by idAdq";
-            datos = new MySqlDataAdapter(command);
-            DataTable dtAdq = new DataTable();
-            datos.Fill(dtAdq);
-            if (dtAdq.Rows.Count > 0)
+            dtDatos = libGen.consSql("SELECT idAdq valPar, nomAdq desPar FROM tipoaquisicion order by idAdq", connString);
+            if (dtDatos.Rows.Count > 0)
             {
-                cbAdqui.ValueMember = "idAdq";
-                cbAdqui.DisplayMember = "nomAdq";
-                cbAdqui.DataSource = dtAdq;
+                cbAdqui.ValueMember = "valPar";
+                cbAdqui.DisplayMember = "desPar";
+                cbAdqui.DataSource = dtDatos;
             }
-            command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM categoria order by idCat";
-            datos = new MySqlDataAdapter(command);
-            DataTable dtCat = new DataTable();
-            datos.Fill(dtCat);
-            if (dtCat.Rows.Count > 0)
+            dtDatos = libGen.consSql("SELECT idCat valPar, desCat desPar FROM categoria order by idCat", connString);
+            if (dtDatos.Rows.Count > 0)
             {
-                cbCat.ValueMember = "idCat";
-                cbCat.DisplayMember = "desCat";
-                cbCat.DataSource = dtCat;
+                cbCat.ValueMember = "valPar";
+                cbCat.DisplayMember = "desPar";
+                cbCat.DataSource = dtDatos;
             }
-
-            command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM estadoActivo order by idEst";
-            datos = new MySqlDataAdapter(command);
-            DataTable dtEstadot = new DataTable();
-            datos.Fill(dtEstadot);
-            if (dtEstadot.Rows.Count > 0)
+            dtDatos = libGen.consSql("SELECT idEst valPar, nomEst desPar FROM estadoActivo order by idEst", connString);
+            if (dtDatos.Rows.Count > 0)
             {
-                cbEstado.ValueMember = "idEst";
-                cbEstado.DisplayMember = "nomEst";
-                cbEstado.DataSource = dtEstadot;
+                cbEstado.ValueMember = "valPar";
+                cbEstado.DisplayMember = "desPar";
+                cbEstado.DataSource = dtDatos;
             }
-
-            //conn.Close();
-
             if (!string.IsNullOrWhiteSpace(codAct))
             {
-                //conn.Open();
+                MySqlConnection conn = new MySqlConnection(connString);
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                MySqlDataAdapter datos;
                 command = conn.CreateCommand();
                 command.CommandText = "SELECT act.*, par.mesVid, td.tDep FROM activo act, parametroDepreciacion par, "
                     + "(SELECT SUM(mesDep)tdep, activo_idAct idAc FROM historialdepreciacion GROUP BY activo_idAct) AS td "
@@ -154,7 +127,7 @@ namespace activosFijos
                     command = conn.CreateCommand();
                     command.CommandText = "UPDATE activo AS act, (SELECT SUM(monDep)tdep, activo_idAct idAc FROM historialdepreciacion " +
                         "GROUP BY activo_idAct) AS td SET act.depAcu = td.tdep, act.valAct = act.valCom - td.tdep, act.ultDep=NOW(), "
-                        + "estadoActivo_idEst=3 WHERE act.idAct = td.idAc AND act.idACt=@idAct";
+                        + "estadoActivo_idEst=3, act.valRes=0 WHERE act.idAct = td.idAc AND act.idACt=@idAct";
                     command.Parameters.Add("@idAct", MySqlDbType.Int32).Value = Convert.ToInt32(txtIdAct.Text);
                     command.ExecuteNonQuery();
 

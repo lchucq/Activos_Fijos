@@ -1,4 +1,5 @@
-﻿using System;
+﻿using activosFijos.Rpt;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -109,6 +110,16 @@ namespace activosFijos
         private void ajusteDeActivosPorSalidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addFrmPanel(new busOutAct());
+        }
+
+        private void activosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            addFrmPanel(new rptAct());
+        }
+
+        private void depreciacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addFrmPanel(new rptDep());
         }
     }
 }

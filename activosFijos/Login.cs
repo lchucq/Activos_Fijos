@@ -14,10 +14,10 @@ using static activosFijos.Program;
 
 namespace activosFijos
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
         string connString = File.ReadAllText(Application.StartupPath + "\\conn.dat");
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }

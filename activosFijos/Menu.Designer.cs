@@ -48,6 +48,8 @@
             this.hora = new MetroFramework.Controls.MetroLabel();
             this.clock = new System.Windows.Forms.Timer(this.components);
             this.pnMenu = new System.Windows.Forms.Panel();
+            this.activosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.depreciacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,6 +163,9 @@
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activosToolStripMenuItem1,
+            this.depreciacionesToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -194,6 +199,20 @@
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(454, 281);
             this.pnMenu.TabIndex = 5;
+            // 
+            // activosToolStripMenuItem1
+            // 
+            this.activosToolStripMenuItem1.Name = "activosToolStripMenuItem1";
+            this.activosToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.activosToolStripMenuItem1.Text = "Activos";
+            this.activosToolStripMenuItem1.Click += new System.EventHandler(this.activosToolStripMenuItem1_Click);
+            // 
+            // depreciacionesToolStripMenuItem
+            // 
+            this.depreciacionesToolStripMenuItem.Name = "depreciacionesToolStripMenuItem";
+            this.depreciacionesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.depreciacionesToolStripMenuItem.Text = "Depreciaciones";
+            this.depreciacionesToolStripMenuItem.Click += new System.EventHandler(this.depreciacionesToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -236,5 +255,7 @@
         private System.Windows.Forms.ToolStripMenuItem modificarActivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cálculoYDepreciacionActivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajusteDeActivosPorSalidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem depreciacionesToolStripMenuItem;
     }
 }
