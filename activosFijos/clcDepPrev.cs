@@ -31,29 +31,11 @@ namespace activosFijos
 
         private void mtdFill()
         {
+            string messtr = "";
             MySqlConnection conn = new MySqlConnection(connString);
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             MySqlDataAdapter datos;
-            command.CommandText = "SELECT idAct, activo.desAct, depMen, par.mesVid, parametrodepreciacion_idPar idPar, his.mntDep monDepre, "
-                + "his.mssDep mesesDepre  FROM activo LEFT JOIN (SELECT SUM(rial.monDep)mntDep, SUM(rial.mesDep)mssDep, rial.activo_idAct "
-                + "FROM historialdepreciacion rial, activo WHERE rial.activo_idAct=activo.idAct GROUP BY activo_idAct) AS his ON (activo.idAct=his.activo_idAct), "
-                + "parametrodepreciacion par WHERE estadoactivo_idEst=1 AND activo.parametroDepreciacion_idPar=PAR.idPar "
-                + "AND (par.iniMesCom=1 OR MONTH(activo.fecCom)< MONTH(NOW())) AND his.mssDep<par.mesVid";
-            datos = new MySqlDataAdapter(command);
-            dtDepreciables = new DataTable();
-            datos.Fill(dtDepreciables);
-            if (dtDepreciables.Rows.Count > 0)
-            {
-                decimal totdepre = 0;
-                grdView.DataSource = dtDepreciables;
-                foreach (DataRow dr in dtDepreciables.Rows)
-                    totdepre += Convert.ToDecimal(dr["depMen"]);
-                lblTotal.Text = totdepre.ToString("N2");
-                btnSearch.Visible = true;
-                btnSearch.Focus();
-            }
-            command = conn.CreateCommand();
             command.CommandText = "SELECT * FROM historialdepreciacion order by desDep DESC LIMIT 1";
             datos = new MySqlDataAdapter(command);
             DataTable dtCat = new DataTable();
@@ -70,7 +52,6 @@ namespace activosFijos
                 }
                 else
                     mes++;
-                string messtr = "";
                 if (mes < 10)
                     messtr = "0" + mes.ToString();
                 else
@@ -79,7 +60,31 @@ namespace activosFijos
                 lblMesAnn.Text = Ann.ToString() + "-" + messtr;
             }
             else
+            {
                 lblMesAnn.Text = DateTime.Now.ToString("yyyy-MM");
+                messtr = DateTime.Now.Month.ToString();
+            }
+            command = conn.CreateCommand();
+            command.CommandText = "SELECT idAct, activo.desAct, depMen, par.mesVid, parametrodepreciacion_idPar idPar, IFNULL(his.mntDep,0) monDepre, "
+                + "IFNULL(his.mssDep,0) mesesDepre  FROM activo LEFT JOIN (SELECT SUM(rial.monDep)mntDep, SUM(rial.mesDep)mssDep, rial.activo_idAct "
+                + "FROM historialdepreciacion rial, activo WHERE rial.activo_idAct=activo.idAct GROUP BY activo_idAct) AS his ON (activo.idAct=his.activo_idAct), "
+                + "parametrodepreciacion par WHERE estadoactivo_idEst=1 AND activo.parametroDepreciacion_idPar=PAR.idPar "
+                + "AND (par.iniMesCom=1 OR MONTH(activo.fecCom) < @mess) AND IFNULL(his.mssDep,0)<par.mesVid";
+            command.Parameters.Add("@mess", MySqlDbType.Int16).Value = Convert.ToInt16(messtr);
+            datos = new MySqlDataAdapter(command);
+            dtDepreciables = new DataTable();
+            datos.Fill(dtDepreciables);
+            if (dtDepreciables.Rows.Count > 0)
+            {
+                decimal totdepre = 0;
+                grdView.DataSource = dtDepreciables;
+                foreach (DataRow dr in dtDepreciables.Rows)
+                    totdepre += Convert.ToDecimal(dr["depMen"]);
+                lblTotal.Text = totdepre.ToString("N2");
+                btnSearch.Visible = true;
+                btnSearch.Focus();
+            }
+            
             conn.Close();
         }
 

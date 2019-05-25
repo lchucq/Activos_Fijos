@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static activosFijos.Program;
 
 namespace activosFijos.Rpt
 {
@@ -94,6 +95,23 @@ namespace activosFijos.Rpt
 
         private void rptDep_Load(object sender, EventArgs e)
         {
+            MySqlConnection conn = new MySqlConnection(connString);
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            MySqlDataAdapter datos;
+            command = conn.CreateCommand();
+            command.CommandText = "SELECT permisos.* FROM usuario, asignacionpermiso, permisos where usuario.idRol=asignacionpermiso.rol_idRol "
+                + "AND asignacionpermiso.Permisos_idPer=permisos.idPer and permisos.codPer='REPAPL' and usuario.idUsu=@codUsu";
+            command.Parameters.Add("@codUsu", MySqlDbType.String).Value = Globals.codUsu;
+            datos = new MySqlDataAdapter(command);
+            DataTable dtPer = new DataTable();
+            datos.Fill(dtPer);
+            conn.Close();
+            if (dtPer.Rows.Count == 0)
+            {
+                btnPrev.Visible = false;
+                MessageBox.Show("No tien Permiso para Modificar Usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             rb1.Checked = true;
             rb1_CheckedChanged(rb1, new EventArgs());
             DataTable dt = new DataTable();
