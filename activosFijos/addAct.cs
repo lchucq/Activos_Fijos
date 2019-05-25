@@ -90,10 +90,19 @@ namespace activosFijos
         {
             try
             {
+                decimal cost;
                 if (string.IsNullOrWhiteSpace(txtNom.Text))
                     MessageBox.Show("Valor Inválido" + Environment.NewLine + "Descripción", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (string.IsNullOrWhiteSpace(txtNumCom.Text))
                     MessageBox.Show("Valor Inválido" + Environment.NewLine + "Comprobante", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if(Convert.ToDateTime(dtpFecCom.Text)>DateTime.Now)
+                    MessageBox.Show("Valor Inválido" + Environment.NewLine + "Fecha de compra debe ser menor o igual a la fecha de sisltema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (!decimal.TryParse(txtCost.Text, out cost))
+                    MessageBox.Show("Valor Inválido" + Environment.NewLine + "Valor Costo no es un número", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (Convert.ToDecimal(txtCost.Text) <= 0)
+                    MessageBox.Show("Valor Inválido" + Environment.NewLine + "Costo no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (!decimal.TryParse(txtValRes.Text, out cost))
+                    MessageBox.Show("Valor Inválido" + Environment.NewLine + "Valor Residual no es un número", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     MySqlConnection conn = new MySqlConnection(connString);

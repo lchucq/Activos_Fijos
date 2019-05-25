@@ -128,7 +128,7 @@ namespace activosFijos
 
                     command = conn.CreateCommand();
                     command.CommandText = "UPDATE activo AS act, parametrodepreciacion par, (SELECT SUM(mesDep)tdep, activo_idAct idAc FROM historialdepreciacion " +
-                        "GROUP BY activo_idAct) AS td SET act.estadoActivo_idEst = 3 WHERE act.idAct = td.idAc AND act.parametroDepreciacion_idPar=par.idPar "
+                        "GROUP BY activo_idAct) AS td SET act.estadoActivo_idEst = 2 WHERE act.idAct = td.idAc AND act.parametroDepreciacion_idPar=par.idPar "
                         + "AND td.tDep >= par.mesVid";
                     command.ExecuteNonQuery();
 
